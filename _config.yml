@@ -6,4 +6,4 @@ relative_links:
 include:
   - Readme.md
 
-theme: minima
+theme: jekyll-theme-cayman
