@@ -1,8 +1,8 @@
 # Configuring SonarQube
 
-## SonarQube Token : `fc2dc9876ba6abf9e64306cd720e71be29219bc5`
+> SonarQube Token : `fc2dc9876ba6abf9e64306cd720e71be29219bc5`
 
-## SonarQube Server URL : http://13.126.86.18/sonarqube
+> SonarQube Server URL : http://13.126.86.18/sonarqube
 
 ### Step 1 : Install SonarLint VSCode extension
 
