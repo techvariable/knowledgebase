@@ -2,9 +2,13 @@
 
 ## SonarQube Token : `fc2dc9876ba6abf9e64306cd720e71be29219bc5`
 
+## SonarQube Server URL : http://13.126.86.18/sonarqube
+
 ### Step 1 : Install SonarLint VSCode extension
 
-### Step 2 : 
+### Step 2 : Install Sonar-scanner and add the path to the environment variable
+
+### Step 3 : 
 Once installed, restart or reload VS Code to ensure it's taken effect.
 
 If SonarLint can't detect a JAVA JRE on your system, it will prompt you to download one. Let it download if required.
@@ -26,7 +30,7 @@ To get SonarLint working, you need to specify the following settings.
 ```
 
 
-### Step 3 : Configure Workspace to use sonarqube
+### Step 4 : Configure Workspace to use sonarqube
 
 Next, we need to configure your project workspace to allow it to scan the appropriate SonarQube project.
 
@@ -49,10 +53,35 @@ To get SonarLint working, you need to specify the following settings.
 
 We now need to update the SonarLint bindings for the workspace to ensure the rules are in-sync locally and on the server.
 
-Again, hit `Ctrl + Shift + P` to open the command palette. Then enter `SonarLint: Update all bindings to SonarQube/SonarCloud` and select. You should see the following message on the bottom right of VS Code once complete.
+Again, hit `Ctrl + Shift + P` to open the command palette. Then enter `SonarLint: Update all bindings to SonarQube/SonarCloud` and select. You should see the following message on the bottom right of VS Code once complete. If binding fails, proceed to the next step.
 
 
-### Step 4 : Run sonar-scanner
+### Step 5 : Configure your project
+Create a configuration file in your project's root directory called `sonar-project.properties`
+```
+# must be unique in a given SonarQube instance
+sonar.projectKey=my:project
+
+# --- optional properties ---
+
+# defaults to project key
+#sonar.projectName=My project
+# defaults to 'not provided'
+#sonar.projectVersion=1.0
+ 
+# Path is relative to the sonar-project.properties file. Defaults to .
+# For all sources
+#sonar.sources=.
+# For /src
+#sonar.sources= src/
+# To exclude files
+#sonar.exclusions = node_modules/
+ 
+# Encoding of the source code. Default is default system encoding
+#sonar.sourceEncoding=UTF-8
+```
+
+### Step 5 : Run sonar-scanner
 
 If already not installed, install `sonar-scanner` locally.
 
