@@ -59,6 +59,7 @@ Again, hit `Ctrl + Shift + P` to open the command palette. Then enter `SonarLint
 ### Step 5 : Configure your project
 Create a configuration file in your project's root directory called `sonar-project.properties`
 > Note : The configuration file will differ from project to project. This is a example file. Please configure it based on your project
+
 ```
 sonar.projectKey=<projectKey>
 
