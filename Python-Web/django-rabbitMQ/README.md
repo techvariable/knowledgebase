@@ -48,7 +48,7 @@ You can checkout the diagram below to know how task queue works!
 <br><br><br>
 
 <figure align = "center" width="100%">
-<img src="images/workflow.png" width="600"/>
+<img src="./images/workflow.png" width="600"/>
 <figcaption>Workflow for task queue</figcaption>
 </figure>
 <!-- ![Untitled Diagram](https://imgur.com/ZlEeBSH) -->
@@ -114,20 +114,20 @@ You also need to install Erlang. Otherwise, RabbitMQ might not work.
 From start menu, you can search for `RabbitMQ Command Prompt`, a command prompt will be opened where you can start the rabbitMQ server by typing `rabbitmq-server`
 <br><br>
 <figure align = "center" width="100%">
-<img src="images/4.JPG" width="600"/>
+<img src="./images/4.JPG" width="600"/>
 </figure>
 <br>
 By default you can find rabbitMQ server running on: http://localhost:15672/
 Enter username and password both as `guest`
 <br><br>
 <figure align = "center" width="100%">
-<img src="images/5.JPG" width="600"/>
+<img src="./images/5.JPG" width="600"/>
 </figure>
 
 After logging in the dashboard of RabbitMQ server will open up.
 <br><br>
 <figure align = "center" width="100%">
-<img src="images/6.JPG" width="600"/>
+<img src="./images/6.JPG" width="600"/>
 </figure>
 <br>
 Congrats! You have successfully installed rabbitMQ on your system.
@@ -137,46 +137,46 @@ Congrats! You have successfully installed rabbitMQ on your system.
 1. Open command prompt, go to your projects directory where you will be creating the django project.
 2. Execute `django-admin startproject celerytutorial`
 3. Then change the directory by executing: `cd celerytutorial` <figure align = "center" width="100%">
-<img src="images/7.JPG" width="600"/>
+<img src="./images/7.JPG" width="600"/>
 </figure>
 4. Execute `code .` to open up VS code. Alternatively, open the project in any code editor of your choice. You file directory will look something like this.<figure align = "center" width="100%">
-<img src="images/8.JPG" width="600"/>
+<img src="./images/8.JPG" width="600"/>
 </figure>
 5. Create a virtual environment to isolate our package dependencies by executing: `python -m venv env` ('env' can be replaced with the name of virual environment of your choice.)
 6. On windows type: `env\Scripts\activate` to activate the virtual environment. Alternatively, type: `source env/bin/activate` on linux.
 7. Now inside the virual environment run the command: `pip install djangorestframework`. Also, include 'rest_framework' in the INSTALLED_APPS definition in settings.py file. <figure align = "center" width="100%">
-<img src="images/10.JPG" width="600"/>
+<img src="./images/10.JPG" width="600"/>
 </figure>
  (Installing django rest framework is not mandatory, but gives us a lot of convenience and makes our work easier compared to plain django.)
 8. Create a new app, send_mail by running: `python manage.py startapp send_mail`. By now your file directory should look like this. <figure align = "center" width="100%">
-<img src="images/9.JPG" width="600"/>
+<img src="./images/9.JPG" width="600"/>
 </figure>
 9. Make a new file: urls.py inside the folder `send_mail`. To make it accessible , add `path("", include("send_mail.urls")),` in the urpatterns list in celerytutorial/urls.py file. Also, dont forget to import `include` from `django.urls`
 10. Make a directory `templates`, inside of which 3 html files has to be created: base.html, index.html and success.html. The code for all these template files are as follows. Also, add ('DIRS': [Path(BASE_DIR,'templates')],) in your TEMPLATES settings.
 
 base.html
 <figure align = "center" width="100%">
-<img src="images/base_html.JPG" width="600"/>
+<img src="./images/base_html.JPG" width="600"/>
 </figure>
 
 index.html
 <figure align = "center" width="100%">
-<img src="images/index_html.JPG" width="600"/>
+<img src="./images/index_html.JPG" width="600"/>
 </figure>
 
 success.html
 <figure align = "center" width="100%">
-<img src="images/success_html.JPG" width="600"/>
+<img src="./images/success_html.JPG" width="600"/>
 </figure>
 
 send_mail/urls.py
 <figure align = "center" width="100%">
-<img src="images/urls.JPG" width="600"/>
+<img src="./images/urls.JPG" width="600"/>
 </figure>
 
 send_mail/views.py
 <figure align = "center" width="100%">
-<img src="images/views.JPG" width="600"/>
+<img src="./images/views.JPG" width="600"/>
 </figure>
 
 ### Let us test the django project on our browser
@@ -184,7 +184,7 @@ send_mail/views.py
 2. Run `python manage.py runserver` and open the url on your browser. (http://127.0.0.1:8000/ in my case, please make the required changes in the code if your port is different.)
 3. You should be able to see a simple form. 
 <figure align = "center" width="100%">
-<img src="images/11.JPG" width="600"/>
+<img src="./images/11.JPG" width="600"/>
 </figure>
 On clicking submit, success page is rendered and we can click the send mail again button. Till now we have just made the skeleton of the project. Let us now write the logic for sending mail in the views.py file inside SendMailView class. 
 
@@ -192,12 +192,12 @@ On clicking submit, success page is rendered and we can click the send mail agai
 1. Inside your virtual environment run `python -m pip install celery`
 2. Create a new file `celery.py` in the `celerytutorial` directory.
 <figure align = "center" width="100%">
-<img src="images/12.JPG" width="600"/>
+<img src="./images/12.JPG" width="600"/>
 </figure>
 3. Let us create a task now. So, create `tasks.py` in the `send_mail` directory.
 4. Let us call this function (send_email_task) from our API view. 
 <figure align = "center" width="100%">
-<img src="images/13.JPG" width="600"/>
+<img src="./images/13.JPG" width="600"/>
 </figure>
 5. Celery needs a message broker to communicate with programs that send tasks to the task queue. Without a broker, Celery isn’t able to receive instructions.
 6. So, we need to start the rabbitMQ server by running `rabbitmq-server` in the RabbitMQ Command Prompt.
