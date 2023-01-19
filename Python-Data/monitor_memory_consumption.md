@@ -20,3 +20,10 @@ while true; do
     sleep $interval
 done
 ```
+### Instruction for running the script:
+1. Copy the code and save it in a file "memory_monitor.sh"
+2. Run the following command:
+```
+bash ./memory_monitor.sh <pid>
+```
+The code will create a file "memory_usage.txt" and store the percentage of RAM consumed by the process after every 10 seconds
